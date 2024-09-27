@@ -1,0 +1,330 @@
+/* Togggle Menu */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+    background-color: white;
+}
+
+.slide{
+  height: 100%;  
+  width: 180px;
+  position: absolute;
+  background-color: black;
+  transition: 0.5s ease;
+  transform: translateX(-180px);
+}
+
+h1{
+    color: white;
+    font-weight: 650;
+    text-align: right;
+    padding: 15px 0;
+    padding-right: 30px;
+    pointer-events: none; 
+}
+
+ul li{
+    list-style: none;
+}
+
+ul li a{
+    color: white;
+    font-weight: 500;
+    padding: 5px 0;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+    text-align: center;
+}
+
+ul li:hover a{
+    color: #fff;
+    background-color: black;
+}
+
+
+input{
+    display: none;
+    visibility: hidden;
+}
+
+.toggle{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 20px;
+    left: 15px;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.toggle .common{
+    position: absolute;
+    height: 2px;
+    width: 20px;
+    background-color: white;
+    border-radius: 50px;
+    transition: 0.3s ease;
+}
+
+.toggle .top_line{
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toggle .middle_line{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toggle .bottom_line{
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input:checked ~ .toggle .top_line{
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+}
+
+input:checked ~ .toggle .bottom_line{
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(-45deg);
+}
+
+input:checked ~ .toggle .middle_line{
+    opacity: 0;
+    transform: rotate(20px);
+}
+
+input:checked ~ .slide{
+    transform: translateX(0);
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/*Social Media Icon and Logo*/
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    text-decoration: none;
+    background-color: black;
+    height: 60px;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px; 
+    margin-bottom: 15px; 
+}
+
+.logo img {
+    max-height: 50px;
+    width: 300px;
+}
+
+.socials{
+    position: absolute;
+    right: 0%;
+    transform: translateX(-50%);
+    margin-top: 15px; 
+    margin-bottom: 15px; 
+}
+
+.socials img{
+    width: 30px;
+}
+
+/*Product Image*/
+
+.products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.products img{
+    width: 1900px;
+    height: 925px;
+}
+
+/* Shop Now */
+
+.heading{
+    text-align: center;
+}
+.heading span{
+    color: black;
+    font-weight: 900;
+    font-size: xxx-large;
+}
+.menu-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px, auto));
+    grid-gap: 1.5rem;
+    align-items: center;
+    margin-left: 2rem;
+}
+.box{
+    position: relative;
+    margin-top: 3rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 0.5rem;
+    border-style: ridge;
+}
+.box h2{
+    font-size: 1rem;
+    color: black;
+    align-items: center;
+}
+.box h3{
+    color: black;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 4px 0 10px;
+}
+.box span{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.box .prices {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+.sale-tag {
+    background-color: #ff1f06; 
+    color: white;
+    font-size: 17px; 
+    padding: 6px 9px; 
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.original-price {
+    text-decoration: line-through; /* Add strikethrough for the original price */
+    color: black; /* Original price color */
+}
+
+.discounted-price{
+    margin: 10px;
+    color: green;   /* Discounted price color */
+}
+.box .bx{ 
+    background: grey;
+    position: absolute;
+    bottom: 1; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    padding: 7px 0;
+    text-align: center;
+}
+/* Styles for the overlay background */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Styles for the popup container */
+  .popup {
+    display: flex;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+    width: 400px; 
+    text-align: center;
+  }
+ 
+
+  /* Close button styles */
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor:pointer;
+  }
+input[type="number"] {
+    width: 70px;
+    padding: 20px;
+    display: inline;
+    color: black;
+    background-color: rgb(223, 223, 223);
+    border: 1px solid black;
+    border-radius: 9px;
+    font-size: 20px;
+    text-align: center;
+    visibility: visible;
+    
+}
+.co{
+    border-radius: 10px;
+    border: 1px solid black;
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    line-height: 30px; 
+    margin-bottom: 4px;
+    
+}  
+.scroll-top{
+    position: fixed;
+    bottom: 2.3rem;
+    right: 2.3rem;
+}
+.scroll-top i{
+    background-color: rgb(231, 229, 229);
+    border-color: black;
+    color: black;
+    font-size: 22px;
+    padding: 12px;
+    border-radius: 30px;
+    border-style: solid;
+}
+
